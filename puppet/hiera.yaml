@@ -1,0 +1,13 @@
+:backends:
+  - yaml
+  - puppet
+:hierarchy:
+  - host/%{domain}/%{hostname}
+  - role/%{system_role}/%{environment}
+  - environment/%{environment}
+  - global/global
+:yaml:
+  :datadir: /vagrant/puppet/data
+#:puppet:
+#  :datasource: params
+:merge_behavior: deeper

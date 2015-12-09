@@ -1,0 +1,77 @@
+---
+facter:
+  osfamily: 'Redhat'
+hostsfile:
+  - "172.16.32.10    server01.test.shandymora.com    server01"
+  - "172.16.32.11    server02.test.shandymora.com    server02"
+synced_folders:
+  - source: "~/Vagrant/common_files/environments"
+    target: "/vagrant/environments"
+nodes:
+  - hostname: 'server01'
+    networks:
+      - ip: '172.16.32.10'
+        type: "private"
+        interface: "eth2"
+    box: 'puppetlabs/centos-6.6-64-nocm'
+    domain: 'test.shandymora.com'
+    environment: 'test'
+    ram: 256
+    puppet: false
+    hostmanager: false
+    customhostsfile: true
+    customresolv: false
+    customrepos: false
+    packages:
+      - httpd
+      - createrepo
+      - telnet
+    flushiptables: true
+    port_forward:
+      - fwdguest: 80
+        fwdhost: 8081
+    synced_folders:
+      - source: "~/Vagrant/template_vb/build/files/example_role/synced_folder"
+        target: "/tmp/absolute/synced_folder"
+      - source: "build/files/example_role/synced_folder"
+        target: "/tmp/relative/synced_folder"
+    synced_files:
+      - source: "build/files/example_role/synced_file.txt"
+        target: "/tmp/synced_file"
+    postinstall: false
+    facter:
+      system_role: 'example'
+      system_env: 'test'
+  - hostname: 'server02'
+    networks:
+      - ip: '172.16.32.11'
+        type: "private"
+        interface: "eth2"
+    box: 'puppetlabs/centos-6.6-64-nocm'
+    domain: 'test.shandymora.com'
+    environment: 'test'
+    ram: 256
+    puppet: false
+    hostmanager: false
+    customhostsfile: true
+    customresolv: false
+    customrepos: false
+    packages:
+      - httpd
+    flushiptables: true
+    port_forward:
+      - fwdguest: 80
+        fwdhost: 8082
+    synced_folders:
+      - source: "~/Vagrant/template_vb/build/files/example_role/synced_folder"
+        target: "/tmp/absolute/synced_folder"
+      - source: "build/files/example_role/synced_folder"
+        target: "/tmp/relative/synced_folder"
+    synced_files:
+      - source: "build/files/example_role/synced_file.txt"
+        target: "/tmp/synced_file"
+    postinstall: false
+    facter:
+      system_role: 'example'
+      system_env: 'test'
+

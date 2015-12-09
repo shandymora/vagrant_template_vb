@@ -1,0 +1,9 @@
+[localrepo-common]
+metadata_expire=10800
+gpgcheck=0
+name=Localrepo Common:
+enabled=1
+sslverify=False
+http_caching=all
+baseurl=http://localrepo.test.shandymora.com/common
+
