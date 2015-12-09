@@ -1,5 +1,5 @@
 # vagrant_template_vb
-Template for deploying Vagrant VM's via a yaml config file
+Template for deploying Vagrant VM's via a yaml config file.  This is built primarily for deploying CentOS images.
 
 1.  [Configuration](#configuration)
 
