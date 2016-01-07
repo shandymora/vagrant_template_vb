@@ -9,7 +9,7 @@ nodes = settings["nodes"]
 
 common_files_path = "~/Vagrant/common_files"
 
-facter = settings["facter"]
+common_facter = settings["facter"]
 
 Vagrant.configure("2") do |config|
 
@@ -134,7 +134,7 @@ Vagrant.configure("2") do |config|
         # Create facter config
         node_facter = { "environment" => node["environment"] }
         node_facter = node_facter.merge(node["facter"]) if node.has_key?("facter")
-        facter = facter.merge(node_facter)
+        facter = common_facter.merge(node_facter)
 
         # Install required packages for Puppet
         node_config.vm.provision "install required packages", type: "shell", inline: "yum -y install ruby rubygems puppet"
