@@ -13,6 +13,8 @@ common_facter = settings["facter"]
 
 Vagrant.configure("2") do |config|
 
+  config.ssh.insert_key = false
+
   # Setup common custom synced folders
   if settings.has_key?("synced_folders") && settings["synced_folders"].respond_to?("each")
     settings["synced_folders"].each do |folder|
