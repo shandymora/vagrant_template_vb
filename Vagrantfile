@@ -27,14 +27,6 @@ Vagrant.configure("2") do |config|
     environment = node["environment"] ? node["environment"] : "test";
     domain = node["domain"] ? node["domain"] : "test.shandymora.com";
  
-    if node["hostmanager"]
-      # Configure hostmanager plugin
-      config.hostmanager.enabled = true
-      config.hostmanager.ignore_private_ip = false
-      config.hostmanager.include_offline = false
-    end
-
-    
     # Configure VirtualBox settings
     config.vm.define node["hostname"] do |node_config|
       node_config.vm.box = node["box"]
@@ -46,8 +38,6 @@ Vagrant.configure("2") do |config|
 #        node_config.vm.network :private_network, ip: network["ip"],
 #          virtualbox__intnet: network["name"]
       end
-
-      node_config.hostmanager.aliases = [ node["hostname"] ]
 
       if node["port_forward"]
 	node["port_forward"].each do |forward|
