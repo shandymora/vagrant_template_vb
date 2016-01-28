@@ -50,11 +50,15 @@ Vagrant.configure("2") do |config|
       end
 
       memory = node["ram"] ? node["ram"] : 256;
+      cpus = node["cpus"] ? node["cpus"] : 1;
+
       node_config.vm.provider :virtualbox do |vb|
         vb.customize [
           'modifyvm', :id,
           '--name', node["hostname"],
-          '--memory', memory.to_s
+          '--memory', memory.to_s,
+	  '--ioapic', 'on',
+          '--cpus', cpus.to_s
         ]
       end
       

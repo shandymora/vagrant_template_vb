@@ -17,6 +17,7 @@ nodes:
     domain: 'test.shandymora.com'
     environment: 'test'
     ram: 256
+    cpus: 1
     puppet: false
     hostmanager: false
     customhostsfile: true
@@ -51,6 +52,7 @@ nodes:
     domain: 'test.shandymora.com'
     environment: 'test'
     ram: 256
+    cpus: 1
     puppet: false
     hostmanager: false
     customhostsfile: true
