@@ -51,7 +51,6 @@ Vagrant.configure("2") do |config|
 
       memory = node["ram"] ? node["ram"] : 256;
       cpus = node["cpus"] ? node["cpus"] : 1;
-      basefolder = node["basefolder"] ? node["basefolder"] : '~/VirtualBox VMs'
 
       node_config.vm.provider :virtualbox do |vb|
         vb.customize [
@@ -60,11 +59,6 @@ Vagrant.configure("2") do |config|
           '--memory', memory.to_s,
 	  '--ioapic', 'on',
           '--cpus', cpus.to_s
-        ]
-	vb.customize [
-          'createvm',
-          '--name', node["hostname"],
-          '--basefolder', basefolder
         ]
       end
       

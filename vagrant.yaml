@@ -18,7 +18,6 @@ nodes:
     environment: 'test'
     ram: 256
     cpus: 1
-    basefolder: '~/VirtualBox VMs'
     puppet: false
     hostmanager: false
     customhostsfile: true
@@ -54,7 +53,6 @@ nodes:
     environment: 'test'
     ram: 256
     cpus: 1
-    basefolder: '~/VirtualBox VMs'
     puppet: false
     hostmanager: false
     customhostsfile: true
