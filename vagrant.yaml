@@ -1,6 +1,6 @@
 ---
 facter:
-  osfamily: 'Redhat'
+  osfamily: 'RedHat'
 hostsfile:
   - "172.16.32.10    server01.test.shandymora.com    server01"
   - "172.16.32.11    server02.test.shandymora.com    server02"
